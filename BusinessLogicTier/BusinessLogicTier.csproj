@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="DataAcessTier">
+      <HintPath>..\DataAcessTier\bin\Debug\net6.0\DataAcessTier.dll</HintPath>
+    </Reference>
+    <Reference Include="DataTransferObject">
+      <HintPath>..\DataAcessTier\bin\Debug\net6.0\DataTransferObject.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
