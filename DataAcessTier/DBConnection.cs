@@ -10,9 +10,10 @@ namespace DataAcessTier
         {
             try
             {
-                conn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=dbSanPham.mdb;Persist Security Info=True");
+                conn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbSanPham.mdb;Persist Security Info=True");
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 throw;
             }
         }

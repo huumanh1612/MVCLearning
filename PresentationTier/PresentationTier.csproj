@@ -13,6 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogicTier\BusinessLogicTier.csproj" />
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="BusinessLogicTier">
       <HintPath>..\BusinessLogicTier\bin\Debug\net6.0\BusinessLogicTier.dll</HintPath>
     </Reference>

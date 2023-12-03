@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataAcessTier\DataAcessTier.csproj" />
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="DataAcessTier">
       <HintPath>..\DataAcessTier\bin\Debug\net6.0\DataAcessTier.dll</HintPath>
     </Reference>
