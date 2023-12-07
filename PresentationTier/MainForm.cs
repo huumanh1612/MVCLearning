@@ -24,12 +24,11 @@ namespace PresentationTier
         }
 
 
-
         private void btnXem_Click(object sender, EventArgs e)
         {
-            strMaDanhMuc_Chon = lstDanhMuc.SelectedValue.ToString();
-            SanPhamForm f = new SanPhamForm();
-            f.ShowDialog();
+                strMaDanhMuc_Chon = lstDanhMuc.SelectedValue.ToString();
+                SanPhamForm f = new SanPhamForm();
+                f.ShowDialog();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

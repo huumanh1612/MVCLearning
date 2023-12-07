@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="DataTransferObject">
       <HintPath>..\DataTransferObject\bin\Debug\net6.0\DataTransferObject.dll</HintPath>
     </Reference>
