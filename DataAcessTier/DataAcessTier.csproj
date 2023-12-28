@@ -11,9 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="DataTransferObject">
-      <HintPath>..\DataTransferObject\bin\Debug\net6.0\DataTransferObject.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="dbSanPham.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

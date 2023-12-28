@@ -9,7 +9,7 @@ using System.Data.OleDb;
 
 namespace DataAcessTier
 {
-    public class SanPhamDAO: DBConnection
+    public class SanPhamDAO : DBConnection
     {
         public SanPhamDAO() : base() { }
         public DataTable GetSanPhamByMADM(string strDM)
@@ -104,22 +104,22 @@ namespace DataAcessTier
                 conn.Close();
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 conn.Close();
                 Console.WriteLine(ex);
                 return false;
             }
         }
-        
-        public bool UpdateSanPham (SanPham sp)
+
+        public bool UpdateSanPham(SanPham sp)
         {
             try
             {
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
                 OleDbCommand cmd = new OleDbCommand("UPDATE tbSanPham SET tensp = @tensp, soluong = @soluong, dongia = @dongia, xuatxu = @xuatxu, madm = @madm where masp = @masp", conn);
-                
+
                 cmd.Parameters.Add("@tensp", OleDbType.BSTR).Value = sp.TenSanPham;
                 cmd.Parameters.Add("@soluong", OleDbType.Numeric).Value = sp.SoLuong;
                 cmd.Parameters.Add("@donggia", OleDbType.Numeric).Value = sp.DonGia;
@@ -150,7 +150,7 @@ namespace DataAcessTier
                 OleDbDataAdapter da = new OleDbDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                if (dt.Rows.Count ==1 )
+                if (dt.Rows.Count == 1)
                 {
                     result = true;
                 }
@@ -161,6 +161,25 @@ namespace DataAcessTier
                 conn.Close();
             }
             return result;
+        }
+
+        public bool DeleteSanPham(SanPham sp)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+                OleDbCommand cmd = new OleDbCommand("DELETE FROM tbSanPham WHERE masp = @masp", conn);
+                cmd.Parameters.Add("@masp", OleDbType.BSTR).Value = sp.MaSanPham;
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch
+            {
+                conn.Close();
+                return false;
+            }
         }
     }
 }

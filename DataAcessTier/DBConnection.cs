@@ -10,7 +10,9 @@ namespace DataAcessTier
         {
             try
             {
-                conn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=dbSanPham.mdb;Persist Security Info=True");
+                dynamic path = AppDomain.CurrentDomain.BaseDirectory;
+                string strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + "dbSanPham.mdb";
+                conn = new OleDbConnection(strConn);
             }
             catch (Exception) {
                 throw;

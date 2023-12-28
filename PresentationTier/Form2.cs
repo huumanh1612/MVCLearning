@@ -17,8 +17,10 @@ namespace PresentationTier
     {
         DanhMucBUS objDM = new DanhMucBUS();
         SanPhamBUS objSP = new SanPhamBUS();
+        SanPham sp = new SanPham();
 
         DataTable tbSP;
+
         public SanPhamForm()
         {
             InitializeComponent();
@@ -112,5 +114,38 @@ namespace PresentationTier
         {
             this.Close();
         }
+
+        SanPham spSelected = new SanPham();
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView.CellClick += new DataGridViewCellEventHandler(dataGridView_CellClick);
+
+                if (objSP.DeleteSanPham(spSelected))
+                {
+                    MessageBox.Show("Xóa sản phẩm thành công");
+                    dataGridView.DataSource = objSP.GetSanPhamByMADM(MainForm.strMaDanhMuc_Chon);
+                    ResetTextFields();
+                }
+                else
+                    MessageBox.Show("Có lỗi trong quá trình xóa sản phẩm");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi trong quá trình xóa sản phẩm");
+            }
+        }
+
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string strMasp = "";
+            if ((strMasp = dataGridView.CurrentRow.Cells[0].Value.ToString()) != "")
+            {
+                spSelected = objSP.GetSanPhamByMASP(strMasp);
+            }
+        }
+
+       
     }
 }

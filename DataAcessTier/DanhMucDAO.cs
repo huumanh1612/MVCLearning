@@ -9,7 +9,7 @@ using System.Data.OleDb;
 
 namespace DataAcessTier
 {
-    public class DanhMucDAO: DBConnection
+    public class DanhMucDAO : DBConnection
     {
         public DanhMucDAO() : base() { }
         public bool DeleteDanhMuc(string madm)
@@ -26,7 +26,7 @@ namespace DataAcessTier
             }
             catch
             {
-                conn.Close(); 
+                conn.Close();
                 return false;
             }
         }
@@ -35,8 +35,7 @@ namespace DataAcessTier
         {
             try
             {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
+                if (conn.State != ConnectionState.Open) conn.Open();
                 OleDbCommand cmd = new OleDbCommand("SELECT * FROM tbDanhMuc ORDER BY MaDm ASC", conn);
                 OleDbDataAdapter da = new OleDbDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -44,7 +43,7 @@ namespace DataAcessTier
                 conn.Close();
                 return dt;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 conn.Close();
             }
@@ -69,7 +68,7 @@ namespace DataAcessTier
                 }
                 conn.Close();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 conn.Close();
             }

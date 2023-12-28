@@ -44,5 +44,13 @@ namespace BusinessLogicTier
             else
                 return false;
         }
+
+        public bool DeleteSanPham (SanPham sp)
+        {
+            if (objSP.CheckSanPhamByID(sp.MaSanPham) && objDM.CheckDanhMucByID(sp.MaDanhMuc))
+                return objSP.DeleteSanPham(sp);
+            else
+                return false;
+        }
     }
 }
